@@ -20,6 +20,7 @@
   color: var(--white);
 }
 
+/* HEADER CONTENT */
 #masterheader-container {
   display: flex;
   padding: 0px 15px;
@@ -160,3 +161,122 @@
   border: 1px solid var(--blue);
   border-radius: 50%;
 }
+
+/* ====================== */
+
+/* SIDEBAR */
+.sidebar {
+  padding: 15px;
+  margin-top: 50px;
+  width: 250px;
+  background-color: var(--black);
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  bottom: 0;
+  display: inline;
+}
+
+.sidebar:hover {
+  overflow-y: scroll;
+}
+
+.text_icon {
+  padding-left: 20px;
+  display: inline;
+}
+
+#active_sidebar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 12px;
+  height: 48px;
+  cursor: pointer;
+  background-color: var(--black-15);
+  border-radius: 10px;
+  outline: 0;
+  min-height: 48px;
+}
+
+#active_sidebar:hover {
+  background-color: var(--black-30);
+}
+
+#non_active_sidebar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 12px;
+  height: 48px;
+  cursor: pointer;
+  border-radius: 10px;
+  outline: 0;
+  min-height: 48px;
+}
+
+#non_active_sidebar:hover {
+  background-color: var(--black-30);
+}
+
+hr {
+  height: 2px;
+  border-width: 0;
+  color: gray;
+  background-color: gray;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+/* ==================== */
+/* Sidebar short */
+.sidebar-short {
+  padding: 10px;
+  margin-top: 50px;
+  width: 80px;
+  background-color: var(--black);
+  height: 100%;
+  position: fixed;
+  display: none;
+}
+
+.sidebar-short-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  outline: 0;
+  padding: 16px 0 14px;
+  cursor: pointer;
+}
+.sidebar-short-title {
+  margin-top: 10px;
+  font-size: 10px;
+}
+
+.sidebar-short-item:hover {
+  border-radius: 10px;
+  background-color: var(--black-15);
+}
+/* ==================== */
+
+/* RESPONSIVE DESIGN */
+@media only screen and (max-width: 800px) {
+  /* For tablets: */
+  .main {
+    width: 80%;
+    padding: 0;
+  }
+  .right {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  /* For mobile phones: */
+  .menu,
+  .main,
+  .right {
+    width: 100%;
+  }
+}
+/* ================= */
