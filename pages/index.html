@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LongTube</title>
+    <link rel="stylesheet" href="../css/index_style.css" />
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- ============= -->
+    <!-- FAVICON -->
+    <link
+      rel="shortcut icon"
+      href="../imgs/favicon_youtube.png"
+      type="image/x-icon"
+    />
+    <!-- ============= -->
+    <!-- BOOTSTAP -->
+
+    <!-- ============ -->
+  </head>
+  <body>
+    <header>
+      <!-- Header content start here -->
+      <div id="masterheader-container">
+        <!-- Content Left start here -->
+        <div id="content-left">
+          <div id="icon" onclick="showSideBar()">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+          <a id="tube_name" href="" title="Trang chủ LongTube"
+            ><i style="color: red" class="fa-brands fa-youtube"></i>LONGTUBE<sup
+              style="font-size: 10px"
+              >VN</sup
+            >
+          </a>
+        </div>
+        <!-- ======================= -->
+        <!-- Content center start here -->
+        <div id="content-center">
+          <div id="icon_input_text">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <input
+            type="text"
+            placeholder="Tìm kiếm"
+            id="input_text"
+            onfocus="inputTextFocus()"
+            onblur="blurFunction()"
+          />
+          <div id="icon_input_text_active">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <div id="voice_icon">
+            <i
+              id="microphone"
+              title="Tìm kiếm bằng giọng nói"
+              class="fa-solid fa-microphone"
+            ></i>
+          </div>
+        </div>
+        <!-- ========================= -->
+        <div id="content-right">
+          <div id="icon" onclick="makeVideoClick()" onblur="makeVideoBlur()">
+            <i id="bellIcon" title="Tạo" class="fa-solid fa-video"></i>
+          </div>
+          <div id="icon" onclick="bellClick()" onblur="bellBlur()">
+            <i id="bell" class="fa-regular fa-bell" title="Thông báo"></i>
+          </div>
+          <div id="icon_avatar">
+            <img
+              src="../imgs/avatar.jpg"
+              alt="avatar"
+              width="38px"
+              height="38px"
+              style="border-radius: 50%"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- ========================= -->
+    </header>
+    <main>
+      <!-- SideBar Full content -->
+      <div class="sidebar">
+        <div id="active_sidebar">
+          <i style="max-width: 15px" class="fa-solid fa-house"></i>
+          <p class="text_icon">Trang chủ</p>
+        </div>
+        <div id="non_active_sidebar">
+          <i style="max-width: 15px" class="fa-solid fa-bolt"></i>
+          <p class="text_icon">Shorts</p>
+        </div>
+        <div id="non_active_sidebar">
+          <i style="max-width: 15px" class="fa-regular fa-images"></i>
+          <p class="text_icon">Kênh đăng ký</p>
+        </div>
+
+        <hr />
+
+        <div id="non_active_sidebar">
+          <p style="margin-right: 10px">Bạn</p>
+          <i class="fa-solid fa-angle-right"></i>
+        </div>
+        <div id="non_active_sidebar">
+          <i class="fa-regular fa-id-card"></i>
+          <p class="text_icon">Kênh của bạn</p>
+        </div>
+        <div id="non_active_sidebar">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <p class="text_icon">Video đã xem</p>
+        </div>
+        <div id="non_active_sidebar">
+          <i class="fa-regular fa-circle-play"></i>
+          <p class="text_icon">Xem sau</p>
+        </div>
+        <div id="non_active_sidebar">
+          <i class="fa-solid fa-angle-down"></i>
+          <p class="text_icon">Thêm</p>
+        </div>
+
+        <hr />
+
+        <div id="non_active_sidebar">
+          <p style="margin-right: 10px">Khám phá</p>
+        </div>
+        <div id="non_active_sidebar">
+          <i class="fa-regular fa-id-card"></i>
+          <p class="text_icon">Thịnh hành</p>
+        </div>
+        <div id="non_active_sidebar">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <p class="text_icon">Âm nhạc</p>
+        </div>
+        <div id="non_active_sidebar">
+          <i class="fa-regular fa-circle-play"></i>
+          <p class="text_icon">Trò chơi</p>
+        </div>
+        <div id="non_active_sidebar">
+          <i class="fa-solid fa-angle-down"></i>
+          <p class="text_icon">Tin tức</p>
+        </div>
+        <div id="non_active_sidebar">
+          <i class="fa-solid fa-angle-down"></i>
+          <p class="text_icon">Thể thao</p>
+        </div>
+
+        <hr />
+
+        <div id="non_active_sidebar">
+          <i class="fa-solid fa-gear"></i>
+          <p class="text_icon">Cài đặt</p>
+        </div>
+        <div id="non_active_sidebar">
+          <i class="fa-regular fa-flag"></i>
+          <p class="text_icon">Nhật ký báo cáo</p>
+        </div>
+        <div id="non_active_sidebar">
+          <i class="fa-regular fa-circle-question"></i>
+          <p class="text_icon">Trợ giúp</p>
+        </div>
+        <div id="non_active_sidebar">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <p class="text_icon">Gửi ý kiến</p>
+        </div>
+
+        <hr />
+      </div>
+      <!-- =============================== -->
+      <!-- Sidebar-short content -->
+      <div class="sidebar-short">
+        <div class="sidebar-short-item">
+          <i class="fa-solid fa-house"></i>
+          <p class="sidebar-short-title">Trang chủ</p>
+        </div>
+        <div class="sidebar-short-item">
+          <i class="fa-solid fa-bolt"></i>
+          <p class="sidebar-short-title">Shorts</p>
+        </div>
+        <div class="sidebar-short-item">
+          <i class="fa-regular fa-images"></i>
+          <p class="sidebar-short-title">Kênh đăng ký</p>
+        </div>
+        <div class="sidebar-short-item">
+          <i class="fa-regular fa-circle-play"></i>
+          <p class="sidebar-short-title">Bạn</p>
+        </div>
+      </div>
+    </main>
+    <script src="../javascript/index_script.js"></script>
+  </body>
+</html>
