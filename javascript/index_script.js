@@ -9,6 +9,9 @@ const maxWidthCard = document.querySelector(".conatiner_texts");
 const contents = document.querySelector("#contents");
 const cards = document.querySelectorAll(".card");
 const conatiner_texts = document.querySelectorAll(".conatiner_texts");
+const videos = document.querySelectorAll(".video");
+const container_thumbnails = document.querySelectorAll(".container_thumbnail");
+let timeout;
 
 function inputTextFocus() {
   icon_input_text.style.display = "flex";
@@ -59,12 +62,16 @@ function showSideBar() {
   }
 }
 
-function cardHover() {
-  ellipsis_icon.style.display = "inline";
-  maxWidthCard.style.maxWidth = "325px";
+function startVideo(videoID) {
+  const video = document.getElementById(videoID);
+  video.querySelector(".container_thumbnail").style.display = "none";
+  video.querySelector(".video").style.display = "inline";
+  video.querySelector(".video").play();
 }
 
-function cardHoverOut() {
-  ellipsis_icon.style.display = "none";
-  maxWidthCard.style.maxWidth = "340px";
+function stopVideo(videoID) {
+  const video = document.getElementById(videoID);
+  video.querySelector(".container_thumbnail").style.display = "inline";
+  video.querySelector(".video").style.display = "none";
+  video.querySelector(".video").pause();
 }
