@@ -13,6 +13,8 @@ const videos = document.querySelectorAll(".video");
 const container_thumbnails = document.querySelectorAll(".container_thumbnail");
 let timeout;
 
+// This function is used to handle search Text input
+// Make the text input like dynamic
 function inputTextFocus() {
   icon_input_text.style.display = "flex";
 }
@@ -20,7 +22,10 @@ function inputTextFocus() {
 function blurFunction() {
   icon_input_text.style.display = "none";
 }
+// ==================================================
 
+// These two function is used for make the button like dynamic
+// It will change classname the icon so that make the icon can change to different ways
 function makeVideoClick() {
   if (videoIcon.className === "fa-solid fa-video")
     videoIcon.className = "fa-solid fa-video-slash";
@@ -34,7 +39,10 @@ function bellClick() {
   else if (bell.className === "fa-solid fa-bell")
     bell.className = "fa-regular fa-bell";
 }
+// ======================================================================================
 
+// This function is used for handle about open and close sideBar
+// And to make it long or short when user click the menu button
 function showSideBar() {
   if (sideBarFullContent.style.display === "inline") {
     sideBarFullContent.style.display = "none";
@@ -61,7 +69,11 @@ function showSideBar() {
     }
   }
 }
+// =========================================================================
 
+// These two function below handle for start and stop video using hover technique
+// It will auto play the video when user hover to the image of card (thumbnail in this situation)
+// And will stop when the mouse move out the thumbnail
 function startVideo(videoID) {
   const video = document.getElementById(videoID);
   video.querySelector(".container_thumbnail").style.display = "none";
@@ -75,3 +87,4 @@ function stopVideo(videoID) {
   video.querySelector(".video").style.display = "none";
   video.querySelector(".video").pause();
 }
+// ================================================================================
