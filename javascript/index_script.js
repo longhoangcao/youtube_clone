@@ -13,6 +13,12 @@ const videos = document.querySelectorAll(".video");
 const container_thumbnails = document.querySelectorAll(".container_thumbnail");
 let timeout;
 
+start();
+
+function start() {
+  localStorage.clear();
+}
+
 // This function is used to handle search Text input
 // Make the text input like dynamic
 function inputTextFocus() {
@@ -50,6 +56,7 @@ function showSideBar() {
     contents.style.left = "70px";
     // This will effect all card item
     // This will be responsive card item when the showSideBar is clicked
+    localStorage.setItem("shortBar", true);
     for (var i = 0; i < cards.length; i++) {
       var card = cards[i];
       var text = conatiner_texts[i];
@@ -61,6 +68,7 @@ function showSideBar() {
     sideBarFullContent.style.display = "inline";
     sideBarShort.style.display = "none";
     contents.style.left = "250px";
+    localStorage.clear();
     for (var i = 0; i < cards.length; i++) {
       var card = cards[i];
       var text = conatiner_texts[i];
@@ -75,10 +83,19 @@ function showSideBar() {
 // It will auto play the video when user hover to the image of card (thumbnail in this situation)
 // And will stop when the mouse move out the thumbnail
 function startVideo(videoID) {
-  const video = document.getElementById(videoID);
-  video.querySelector(".container_thumbnail").style.display = "none";
-  video.querySelector(".video").style.display = "inline";
-  video.querySelector(".video").play();
+  if (localStorage.getItem("shortBar")) {
+    const video = document.getElementById(videoID);
+    video.querySelector(".container_thumbnail").style.display = "none";
+    video.querySelector(".video").style.display = "inline";
+    video.querySelector(".video").width = "330";
+    video.querySelector(".video").height = "190";
+    video.querySelector(".video").play();
+  } else {
+    const video = document.getElementById(videoID);
+    video.querySelector(".container_thumbnail").style.display = "none";
+    video.querySelector(".video").style.display = "inline";
+    video.querySelector(".video").play();
+  }
 }
 
 function stopVideo(videoID) {
