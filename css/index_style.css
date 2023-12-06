@@ -10,6 +10,7 @@
   --black-30: #4d4d4d;
   --black-15: #262626;
   --blue: #0099ff;
+  --gray: #aaaaaa;
 }
 
 * {
@@ -260,6 +261,74 @@ hr {
 }
 /* ==================== */
 
+/* GRID VIDEOS CONTENT START FROM HERE */
+#contents {
+  background-color: var(--black);
+  display: inline;
+  position: fixed;
+  top: 50px;
+  left: 250px;
+  padding: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
+.card {
+  /* Add shadows to create the "card" effect */
+  margin-left: 15px;
+  margin-bottom: 50px;
+  /* width: 335px; */
+  width: 390px;
+  cursor: pointer;
+}
+
+.thumbnail {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+}
+
+/* Add some padding inside the card container */
+.container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon_card {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.conatiner_texts {
+  word-wrap: break-word;
+  max-width: 320px;
+  /* max-width: 260px; */
+}
+
+#title {
+  color: var(--white);
+  line-height: 22px;
+  margin-bottom: 10px;
+}
+
+#author {
+  color: var(--gray);
+  font-size: 14px;
+}
+
+#ellipsis-icon {
+  display: inline;
+}
+
+/* ===================================== */
+
 /* RESPONSIVE DESIGN */
 @media only screen and (max-width: 800px) {
   /* For tablets: */
@@ -277,6 +346,14 @@ hr {
   .main,
   .right {
     width: 100%;
+  }
+}
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
   }
 }
 /* ================= */
