@@ -94,6 +94,8 @@ function startVideo(videoID) {
     const video = document.getElementById(videoID);
     video.querySelector(".container_thumbnail").style.display = "none";
     video.querySelector(".video").style.display = "inline";
+    video.querySelector(".video").width = "380";
+    video.querySelector(".video").height = "218";
     video.querySelector(".video").play();
   }
 }
