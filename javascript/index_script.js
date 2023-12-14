@@ -11,6 +11,7 @@ const cards = document.querySelectorAll(".card");
 const conatiner_texts = document.querySelectorAll(".conatiner_texts");
 const videos = document.querySelectorAll(".video");
 const container_thumbnails = document.querySelectorAll(".container_thumbnail");
+
 let timeout;
 
 start();
@@ -107,3 +108,64 @@ function stopVideo(videoID) {
   video.querySelector(".video").pause();
 }
 // ================================================================================
+
+// RESPONSIVE FUNCTIONS START FROM HERE
+
+// For tablets
+var x = window.matchMedia("(max-width: 1200px)");
+
+// This function is responsed for make the input text fit the resolution
+function changeWidthOfInputTexts(x) {
+  if (x.matches) {
+    input_text.style.width = "350px";
+    icon_input_text.style.height = "42px";
+  } else {
+    input_text.style.width = "500px";
+    icon_input_text.style.height = "43px";
+  }
+}
+
+// This function is responsed for making sidebar short and the full content sidebar will change to modal
+function changeSidebarToShort(x) {
+  if (x.matches) {
+    sideBarFullContent.style.display = "none";
+    sideBarShort.style.display = "inline";
+  } else {
+    sideBarFullContent.style.display = "inline";
+    sideBarShort.style.display = "none";
+  }
+}
+
+// This function is repsonsed for making the content will fit the resolution
+function changeWidthOfContents(x) {
+  if (x.matches) {
+    contents.style.left = "70px";
+    contents.style.padding = "20px";
+  } else {
+    contents.style.left = "250px";
+    contents.style.padding = "24px";
+  }
+}
+
+// This function is repsonsed for making the cards will fit the resolution
+function adjustifyCards(x) {
+  if (x.matches) {
+    cards.forEach((card) => {
+      card.style.width = "430px";
+    });
+  } else {
+    cards.forEach((card) => {
+      card.style.width = "390px";
+    });
+  }
+}
+
+x.addEventListener("change", function () {
+  changeWidthOfInputTexts(x);
+  changeSidebarToShort(x);
+  changeWidthOfContents(x);
+  adjustifyCards(x);
+});
+// =============================
+
+// ============================================
