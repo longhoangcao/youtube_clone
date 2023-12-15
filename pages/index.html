@@ -31,8 +31,14 @@
       <div id="masterheader-container">
         <!-- Content Left start here -->
         <div id="content-left">
-          <div id="icon" onclick="showSideBar()">
-            <i class="fa-solid fa-bars"></i>
+          <div id="icon">
+            <button
+              id="buttonSideBar"
+              style="background-color: black; border: none; cursor: pointer"
+              onclick="showSideBar()"
+            >
+              <i class="fa-solid fa-bars"></i>
+            </button>
           </div>
           <a id="tube_name" href="" title="Trang chủ LongTube"
             ><i style="color: red" class="fa-brands fa-youtube"></i>LONGTUBE<sup
@@ -67,6 +73,12 @@
         </div>
         <!-- ========================= -->
         <div id="content-right">
+          <div id="icon-700px">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <div id="icon-700px">
+            <i class="fa-solid fa-microphone"></i>
+          </div>
           <div id="icon" onclick="makeVideoClick()" onblur="makeVideoBlur()">
             <i id="videoIcon" title="Tạo" class="fa-solid fa-video"></i>
           </div>
@@ -215,11 +227,11 @@
             </div>
             <!-- VIDEO FROM HERE -->
             <video
+              id="videoAuto"
               width="380"
               height="218"
               controls
               class="video"
-              autoplay="true"
               muted="true"
             >
               <source src="../videos/video_1.mp4" type="video/mp4" />

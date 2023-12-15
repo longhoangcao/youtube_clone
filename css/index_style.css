@@ -73,6 +73,27 @@
   border-radius: 50%;
 }
 
+#icon-700px {
+  margin-right: 10px;
+  display: none;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#icon-700px:hover {
+  background-color: var(--black-15);
+  border-radius: 50%;
+}
+
+#icon-700px:active {
+  background-color: var(--black-30);
+  border-radius: 50%;
+}
+
 #tube_name {
   text-decoration: none;
 }
