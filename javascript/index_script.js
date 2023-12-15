@@ -285,5 +285,21 @@ screenMax700px.addEventListener("change", function () {
   cardsContent700px(screenMax700px);
 });
 
+// For
+var screen500px = window.matchMedia("(max-width: 500px)");
+
+function changeWidthOfHeader(x) {
+  var icons700px = document.querySelectorAll("#icon-700px");
+  if (x.matches) {
+    icons700px.forEach((element) => {
+      element.style.display = "none";
+    });
+  }
+}
+
+screen500px.addEventListener("change", function () {
+  changeWidthOfHeader(screen500px);
+});
+
 // ============================================
 // ============================================
