@@ -11,6 +11,7 @@ const cards = document.querySelectorAll(".card");
 const conatiner_texts = document.querySelectorAll(".conatiner_texts");
 const videos = document.querySelectorAll(".video");
 const container_thumbnails = document.querySelectorAll(".container_thumbnail");
+const buttonSideBar = document.querySelector("#buttonSideBar");
 
 let timeout;
 
@@ -84,19 +85,22 @@ function showSideBar() {
 // It will auto play the video when user hover to the image of card (thumbnail in this situation)
 // And will stop when the mouse move out the thumbnail
 function startVideo(videoID) {
+  if (window.matchMedia("(max-width: 1200px)").matches) {
+    return;
+  }
   if (localStorage.getItem("shortBar")) {
     const video = document.getElementById(videoID);
     video.querySelector(".container_thumbnail").style.display = "none";
     video.querySelector(".video").style.display = "inline";
     video.querySelector(".video").width = "330";
-    video.querySelector(".video").height = "190";
+    video.querySelector(".video").height = "190.5";
     video.querySelector(".video").play();
   } else {
     const video = document.getElementById(videoID);
     video.querySelector(".container_thumbnail").style.display = "none";
     video.querySelector(".video").style.display = "inline";
     video.querySelector(".video").width = "380";
-    video.querySelector(".video").height = "218";
+    video.querySelector(".video").height = "220.5";
     video.querySelector(".video").play();
   }
 }
@@ -112,11 +116,11 @@ function stopVideo(videoID) {
 // RESPONSIVE FUNCTIONS START FROM HERE
 
 // For tablets
-var x = window.matchMedia("(max-width: 1200px)");
+var tabletDevices = window.matchMedia("(max-width: 1200px)");
 
 // This function is responsed for make the input text fit the resolution
-function changeWidthOfInputTexts(x) {
-  if (x.matches) {
+function changeWidthOfInputTexts(tabletDevice) {
+  if (tabletDevice.matches) {
     input_text.style.width = "350px";
     icon_input_text.style.height = "42px";
   } else {
@@ -159,13 +163,127 @@ function adjustifyCards(x) {
     });
   }
 }
+// This function is repsonsed for making the button click show side bar can not click
+function disabledButtonShowBar(x) {
+  if (x.matches) {
+    buttonSideBar.style.cursor = "not-allowed";
+    buttonSideBar.disabled = true;
+  } else {
+    buttonSideBar.style.cursor = "pointer";
+    buttonSideBar.disabled = false;
+  }
+}
 
-x.addEventListener("change", function () {
-  changeWidthOfInputTexts(x);
-  changeSidebarToShort(x);
-  changeWidthOfContents(x);
-  adjustifyCards(x);
+function blockVideos(x) {}
+
+tabletDevices.addEventListener("change", function () {
+  changeWidthOfInputTexts(tabletDevices);
+  changeSidebarToShort(tabletDevices);
+  changeWidthOfContents(tabletDevices);
+  adjustifyCards(tabletDevices);
+  disabledButtonShowBar(tabletDevices);
+  blockVideos(tabletDevices);
 });
 // =============================
+// For Max800px
+var screenMax800px = window.matchMedia("(max-width: 800px)");
 
+function changeInputTexts(mobileDevice) {
+  if (mobileDevice.matches) {
+    input_text.style.width = "150px";
+    icon_input_text.style.height = "43px";
+  } else {
+    input_text.style.width = "500px";
+    icon_input_text.style.height = "43px";
+  }
+}
+
+function displayNoneForSidebarMobile(mobileDevice) {
+  if (mobileDevice.matches) {
+    sideBarFullContent.style.display = "none";
+    sideBarShort.style.display = "none";
+  } else {
+    sideBarFullContent.style.display = "none";
+    sideBarShort.style.display = "inline";
+  }
+}
+
+// This function is repsonsed for making the content will fit the resolution
+function changeWidthOfContentsMobile(x) {
+  if (x.matches) {
+    contents.style.left = "0px";
+    contents.style.padding = "20px";
+  } else {
+    contents.style.left = "70px";
+    contents.style.padding = "20px";
+  }
+}
+
+// This function is repsonsed for making the cards will fit the resolution
+function adjustifyCards800px(x) {
+  if (x.matches) {
+    cards.forEach((card) => {
+      card.style.width = "340px";
+    });
+  } else {
+    cards.forEach((card) => {
+      card.style.width = "430px";
+    });
+  }
+}
+
+function changeSizeOfVideos(x) {
+  if (x.matches) {
+  } else {
+    cards.forEach((card) => {
+      card.style.width = "430px";
+    });
+  }
+}
+
+screenMax800px.addEventListener("change", function () {
+  changeInputTexts(screenMax800px);
+  changeWidthOfContentsMobile(screenMax800px);
+  displayNoneForSidebarMobile(screenMax800px);
+  adjustifyCards800px(screenMax800px);
+  changeSizeOfVideos(screenMax800px);
+});
+
+// For Max700px
+var screenMax700px = window.matchMedia("(max-width: 700px)");
+
+function headerContents(screen700px) {
+  var content_center = document.querySelector("#content-center");
+  var icons700px = document.querySelectorAll("#icon-700px");
+  if (screen700px.matches) {
+    content_center.style.display = "none";
+    icons700px.forEach((element) => {
+      element.style.display = "flex";
+    });
+  } else {
+    content_center.style.display = "flex";
+    icons700px.forEach((element) => {
+      element.style.display = "none";
+    });
+  }
+}
+
+function cardsContent700px(screen700px) {
+  if (screen700px.matches) {
+    cards.forEach((card) => {
+      card.style.width = "100%";
+    });
+  } else {
+    cards.forEach((card) => {
+      card.style.width = "340px";
+    });
+  }
+}
+
+screenMax700px.addEventListener("change", function () {
+  headerContents(screenMax700px);
+  cardsContent700px(screenMax700px);
+});
+
+// ============================================
 // ============================================
